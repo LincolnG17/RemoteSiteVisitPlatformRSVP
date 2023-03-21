@@ -57325,7 +57325,7 @@
 				node.loadPoints();
 			};
 			if ((node.level % node.pcoGeometry.hierarchyStepSize) === 0) {
-				// let hurl = node.pcoGeometry.octreeDir + "/../hierarchy/" + node.name + ".hrc";
+				// let hurl = node.pcoGeometry.octreeDir + "/hierarchy/" + node.name + ".hrc";
 				let hurl = node.pcoGeometry.octreeDir + '/' + node.getHierarchyPath() + '/' + node.name + '.hrc';
 
 				let xhr = XHRFactory.createXMLHttpRequest();
@@ -66095,7 +66095,7 @@ void main() {
 						if (fMno.octreeDir.indexOf('http') === 0) {
 							pco.octreeDir = fMno.octreeDir;
 						} else {
-							pco.octreeDir = url + '/../' + fMno.octreeDir;
+							pco.octreeDir = url + '/' + fMno.octreeDir;
 						}
 
 						pco.spacing = fMno.spacing;
@@ -66364,7 +66364,7 @@ void main() {
 				let {byteOffset, byteSize} = node;
 
 
-				let urlOctree = `${this.url}/../octree.bin`;
+				let urlOctree = `${this.url}/octree.bin`;
 
 				let first = byteOffset;
 				let last = byteOffset + byteSize - 1n;
@@ -66574,7 +66574,7 @@ void main() {
 		async loadHierarchy(node){
 
 			let {hierarchyByteOffset, hierarchyByteSize} = node;
-			let hierarchyPath = `${this.url}/../hierarchy.bin`;
+			let hierarchyPath = `${this.url}/hierarchy.bin`;
 			
 			let first = hierarchyByteOffset;
 			let last = first + hierarchyByteSize - 1n;
@@ -71799,7 +71799,7 @@ void main() {
 
 						if (feature.source) {
 							let cloudjsurl = feature.pointcloud.pcoGeometry.url;
-							let sourceurl = new URL(url + '/../' + cloudjsurl + '/../source/' + feature.source.name);
+							let sourceurl = new URL(url + '/' + cloudjsurl + '/source/' + feature.source.name);
 							link.href = sourceurl.href;
 							link.download = feature.source.name;
 						}
@@ -71810,7 +71810,7 @@ void main() {
 
 							if (feature.source) {
 								let cloudjsurl = feature.pointcloud.pcoGeometry.url;
-								let sourceurl = new URL(url + '/../' + cloudjsurl + '/../source/' + feature.source.name);
+								let sourceurl = new URL(url + '/' + cloudjsurl + '/source/' + feature.source.name);
 								content += sourceurl.href + '\n';
 							}
 						}
@@ -72333,7 +72333,7 @@ void main() {
 				return;
 			}
 
-			let url = `${pointcloud.pcoGeometry.url}/../sources.json`;
+			let url = `${pointcloud.pcoGeometry.url}/sources.json`;
 			//let response = await fetch(url);
 
 			fetch(url).then(async (response) => {
@@ -74928,7 +74928,7 @@ ENDSEC
 
 				let transform = new Matrix4().multiplyMatrices(matrixWorld, negateOffset);
 
-				let path = `${window.location.pathname}/../${pointcloud.pcoGeometry.url}`;
+				let path = `${window.location.pathname}/${pointcloud.pcoGeometry.url}`;
 
 				let arg = {
 					path: path,
@@ -75257,7 +75257,7 @@ ENDSEC
 
 				let transform = new Matrix4().multiplyMatrices(matrixWorld, negateOffset);
 
-				let path = `${window.location.pathname}/../${pointcloud.pcoGeometry.url}`;
+				let path = `${window.location.pathname}/${pointcloud.pcoGeometry.url}`;
 
 				let arg = {
 					path: path,
@@ -77415,7 +77415,7 @@ ENDSEC
 						}
 					);
 
-					const imagePath = `${imageParamsPath}/../${target.id}`;
+					const imagePath = `${imageParamsPath}/${target.id}`;
 					new TextureLoader().load(imagePath,
 						(texture) => {
 							target.texture = texture;
