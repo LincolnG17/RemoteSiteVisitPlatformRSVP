@@ -1,3 +1,0 @@
-# RemoteSiteVisitPlatformRSVP
-
-Test site

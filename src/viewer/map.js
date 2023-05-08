@@ -695,7 +695,7 @@ export class MapView{
 			return;
 		}
 
-		let url = `${pointcloud.pcoGeometry.url}/sources.json`;
+		let url = `${pointcloud.pcoGeometry.url}/../sources.json`;
 		//let response = await fetch(url);
 
 		fetch(url).then(async (response) => {
